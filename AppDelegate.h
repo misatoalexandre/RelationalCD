@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "ServiceTableViewController.h"
 #import "LocationTableViewController.h"
+#import "UserViewController.h"
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
 

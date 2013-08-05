@@ -26,9 +26,11 @@
 @property (weak, nonatomic) IBOutlet UITextField *phoneField;
 @property (weak, nonatomic) IBOutlet UITextField *descriptionField;
 
+/*
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *saveButton;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *cancelButton;
 @property (weak, nonatomic) IBOutlet UINavigationItem *NewLocationNav;
+ */
 
 //Buttons
 - (IBAction)save:(id)sender;

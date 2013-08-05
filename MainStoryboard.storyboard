@@ -209,7 +209,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vcS-HD-w9q" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-322" y="-662"/>
+            <point key="canvasLocation" x="-330" y="194"/>
         </scene>
         <!--Table View Controller - Sessions Appointments-->
         <scene sceneID="oia-hF-E1O">
@@ -1129,19 +1129,27 @@
             </objects>
             <point key="canvasLocation" x="634" y="662"/>
         </scene>
-        <!--View Controller-->
+        <!--User View Controller - Item-->
         <scene sceneID="zUe-1z-gwu">
             <objects>
-                <viewController id="X6Q-d9-nGp" sceneMemberID="viewController">
+                <viewController id="X6Q-d9-nGp" customClass="UserViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="5mn-UH-mVT">
-                        <rect key="frame" x="0.0" y="20" width="320" height="460"/>
+                        <rect key="frame" x="0.0" y="20" width="320" height="411"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aqc-1h-Ka7">
                                 <items>
                                     <navigationItem title="User Info" id="Df6-V2-hTJ">
-                                        <barButtonItem key="leftBarButtonItem" title="Cancel" id="ojn-uo-CkF"/>
-                                        <barButtonItem key="rightBarButtonItem" title="Save" id="Qql-cE-a9z"/>
+                                        <barButtonItem key="leftBarButtonItem" title="Cancel" id="ojn-uo-CkF">
+                                            <connections>
+                                                <action selector="cancel:" destination="X6Q-d9-nGp" id="kZe-HH-s9B"/>
+                                            </connections>
+                                        </barButtonItem>
+                                        <barButtonItem key="rightBarButtonItem" title="Save" id="Qql-cE-a9z">
+                                            <connections>
+                                                <action selector="save:" destination="X6Q-d9-nGp" id="cQR-Rq-tbW"/>
+                                            </connections>
+                                        </barButtonItem>
                                     </navigationItem>
                                 </items>
                             </navigationBar>
@@ -1195,10 +1203,19 @@
                             <constraint firstAttribute="trailing" secondItem="bsK-mG-MQh" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="x12-J7-gbM"/>
                         </constraints>
                     </view>
+                    <tabBarItem key="tabBarItem" title="Item" id="Ouc-bp-DCU"/>
+                    <connections>
+                        <outlet property="businessNameField" destination="1xF-UT-mKp" id="VY8-up-AIV"/>
+                        <outlet property="emailField" destination="J9q-zf-ht2" id="QLd-mh-1c8"/>
+                        <outlet property="firstNameField" destination="1OP-Ly-FMh" id="LA6-Jh-cWh"/>
+                        <outlet property="lastNameField" destination="zdU-YP-nmt" id="uGc-k5-r4d"/>
+                        <outlet property="password" destination="bsK-mG-MQh" id="b48-aA-YAU"/>
+                        <outlet property="phoneField" destination="TV0-Ks-f1L" id="ehK-p7-Nob"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Mse-fZ-AgI" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="199" y="1327"/>
+            <point key="canvasLocation" x="-322" y="-909"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="yvG-XH-X2g">
@@ -1213,6 +1230,7 @@
                     <connections>
                         <segue destination="aCX-gN-6vx" kind="relationship" relationship="viewControllers" id="BzD-gI-Qsg"/>
                         <segue destination="1il-CN-9kT" kind="relationship" relationship="viewControllers" id="9uA-BX-wen"/>
+                        <segue destination="X6Q-d9-nGp" kind="relationship" relationship="viewControllers" id="RkZ-Fk-Eg3"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="c7o-GX-VC5" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1258,6 +1276,79 @@
             <point key="canvasLocation" x="-313" y="-2373"/>
         </scene>
     </scenes>
+    <classes>
+        <class className="AddLocationViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/AddLocationViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="cancel:"/>
+                <relationship kind="action" name="save:"/>
+                <relationship kind="outlet" name="cityField" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="descriptionField" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="phoneField" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="stateField" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="streetAddressField" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="titleField" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="unitAddressField" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="zipField" candidateClass="UITextField"/>
+            </relationships>
+        </class>
+        <class className="AddServiceViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/AddServiceViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="cancel:"/>
+                <relationship kind="action" name="save:"/>
+                <relationship kind="outlet" name="descriptionField" candidateClass="UITextView"/>
+                <relationship kind="outlet" name="titleField" candidateClass="UITextField"/>
+            </relationships>
+        </class>
+        <class className="DisplayLocationViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/DisplayLocationViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="save:"/>
+                <relationship kind="outlet" name="cityField" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="descriptionField" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="phoneField" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="stateField" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="streetAddressField" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="titleField" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="unitAddressField" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="zipField" candidateClass="UITextField"/>
+            </relationships>
+        </class>
+        <class className="LocationTableViewController" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/LocationTableViewController.h"/>
+        </class>
+        <class className="NSLayoutConstraint" superclassName="NSObject">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/NSLayoutConstraint.h"/>
+        </class>
+        <class className="ServiceDetailViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/ServiceDetailViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="done:"/>
+                <relationship kind="action" name="edit:"/>
+                <relationship kind="outlet" name="descriptionField" candidateClass="UITextView"/>
+                <relationship kind="outlet" name="doneButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="editButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="titleField" candidateClass="UITextField"/>
+            </relationships>
+        </class>
+        <class className="ServiceTableViewController" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/ServiceTableViewController.h"/>
+        </class>
+        <class className="UserViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/UserViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="cancel:"/>
+                <relationship kind="action" name="save:"/>
+                <relationship kind="outlet" name="businessNameField" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="emailField" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="firstNameField" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="lastNameField" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="password" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="phoneField" candidateClass="UITextField"/>
+            </relationships>
+        </class>
+    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>

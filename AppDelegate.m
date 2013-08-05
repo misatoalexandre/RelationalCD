@@ -21,6 +21,7 @@
     //The first view controller
     UINavigationController *navController=[[tabBarController viewControllers]objectAtIndex:0];
     UINavigationController *navControllerTwo=[[tabBarController viewControllers]objectAtIndex:1];
+    UINavigationController *userController=[[tabBarController viewControllers]objectAtIndex:2];
     
     //UINavigationController *nav=(UINavigationController *)self.window.rootViewController;
    
@@ -29,8 +30,13 @@
     //ServiceTableViewController *stvc=(ServiceTableViewController *)[[nav viewControllers]objectAtIndex:0];
     stvc.managedObjectContext=self.managedObjectContext;
     
+    //LocationTableViewController (Index 1)
     LocationTableViewController *ltvc=[[navControllerTwo viewControllers]objectAtIndex:0];
     ltvc.managedObjectContext=self.managedObjectContext;
+    
+    //UserViewController (Index2)
+    UserViewController *uvc=[[userController viewControllers]objectAtIndex:0];
+    uvc.managedObjectContext=self.managedObjectContext;
     return YES;
 }
 
