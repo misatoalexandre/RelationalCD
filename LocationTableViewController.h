@@ -8,8 +8,9 @@
 
 #import <UIKit/UIKit.h>
 #import "AddLocationViewController.h"
+#import "DisplayLocationViewController.h"
 
-@interface LocationTableViewController : UITableViewController<AddLocationViewControllerDelegate, NSFetchedResultsControllerDelegate>
+@interface LocationTableViewController : UITableViewController<AddLocationViewControllerDelegate, NSFetchedResultsControllerDelegate, displayLocationViewControllerDelegate>
 @property (nonatomic, strong)   NSManagedObjectContext *managedObjectContext;
 @property (nonatomic, strong)   NSFetchedResultsController *fetchedResultsController;
 

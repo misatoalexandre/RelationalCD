@@ -53,7 +53,7 @@
         <relationship name="package" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Package" inverseName="sessions" inverseEntity="Package" syncable="YES"/>
         <relationship name="service" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="Service" inverseName="sessions" inverseEntity="Service" syncable="YES"/>
     </entity>
-    <entity name="User" syncable="YES">
+    <entity name="User" representedClassName="User" syncable="YES">
         <attribute name="businessName" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="password" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="phone" optional="YES" attributeType="String" syncable="YES"/>

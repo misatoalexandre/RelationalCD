@@ -1,18 +1,19 @@
 //
-//  AddLocationViewController.m
+//  DisplayLocationViewController.m
 //  RelationalCD
 //
-//  Created by Misato Tina Alexandre on 8/2/13.
+//  Created by Misato Tina Alexandre on 8/5/13.
 //  Copyright (c) 2013 Misato Tina Alexandre. All rights reserved.
 //
 
-#import "AddLocationViewController.h"
+#import "DisplayLocationViewController.h"
+#import "AppDelegate.h"
 
-@interface AddLocationViewController ()
+@interface DisplayLocationViewController ()
 
 @end
 
-@implementation AddLocationViewController
+@implementation DisplayLocationViewController
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -27,9 +28,7 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
-    
-    //set the text fields to borderless 
-    
+    //set the value of fields to that of the selected Row (location)
     self.titleField.text=[self.currentLocation locationTitle];
     self.descriptionField.text=[self.currentLocation locationName];
     self.streetAddressField.text=[self.currentLocation streetAddress];
@@ -47,20 +46,20 @@
 }
 
 - (IBAction)save:(id)sender {
-    //dismiss and save the context
-    [self.currentLocation setLocationTitle:self.titleField.text];
-    [self.currentLocation setLocationName:self.descriptionField.text];
-    [self.currentLocation setStreetAddress:self.streetAddressField.text];
-    [self.currentLocation setUnitAddress:self.unitAddressField.text];
-    [self.currentLocation setCity:self.cityField.text];
-    [self.currentLocation setState:self.stateField.text];
-    [self.currentLocation setZip:self.zipField.text];
-    [self.currentLocation setLocationPhone:self.phoneField.text];
-    [self.delegate addLocationViewControllerDidSave];
-}
-
-- (IBAction)cancel:(id)sender {
-    //dismiss and remove the object
-    [self.delegate addLocationViewControllerDidCancel:self.currentLocation];
+    self.currentLocation.locationTitle=self.titleField.text;
+    self.currentLocation.locationName=self.descriptionField.text;
+    self.currentLocation.streetAddress=self.streetAddressField.text;
+    self.currentLocation.unitAddress=self.unitAddressField.text;
+    self.currentLocation.city=self.cityField.text;
+    self.currentLocation.state=self.stateField.text;
+    self.currentLocation.locationPhone=self.phoneField.text;
+    self.currentLocation.zip=self.zipField.text;
+    
+    AppDelegate *myApp=(AppDelegate *)[[UIApplication sharedApplication]delegate];
+    [myApp saveContext];
+    
+    [self.delegate displayLocaitonViewControllerDidSave:self];
+   
+    
 }
 @end

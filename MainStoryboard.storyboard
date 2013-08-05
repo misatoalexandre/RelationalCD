@@ -722,14 +722,17 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Cell" id="WO4-S8-Gng">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Cell" id="WO4-S8-Gng">
                                 <rect key="frame" x="0.0" y="22" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                    <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="300" height="43"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 </view>
+                                <connections>
+                                    <segue destination="N5i-pL-XDC" kind="push" identifier="DisplayLocation" id="RiX-Zg-a8u"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -757,22 +760,6 @@
                         <rect key="frame" x="0.0" y="20" width="320" height="460"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CYK-YM-PrX">
-                                <items>
-                                    <navigationItem title="New Location" id="6Xg-wO-8xI">
-                                        <barButtonItem key="leftBarButtonItem" title="Cancel" id="xlE-Me-8hE">
-                                            <connections>
-                                                <action selector="cancel:" destination="5ee-EQ-I6w" id="dUk-ux-clU"/>
-                                            </connections>
-                                        </barButtonItem>
-                                        <barButtonItem key="rightBarButtonItem" title="Save" id="nuz-29-41O">
-                                            <connections>
-                                                <action selector="save:" destination="5ee-EQ-I6w" id="Vda-ZF-DHg"/>
-                                            </connections>
-                                        </barButtonItem>
-                                    </navigationItem>
-                                </items>
-                            </navigationBar>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Location Title" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="D27-OX-yBq">
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
@@ -814,39 +801,58 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="utl-XR-Qae">
+                                <items>
+                                    <navigationItem title="New Location" id="Pcx-hv-wVO">
+                                        <barButtonItem key="leftBarButtonItem" title="Cancel" id="xlE-Me-8hE">
+                                            <connections>
+                                                <action selector="cancel:" destination="5ee-EQ-I6w" id="dUk-ux-clU"/>
+                                            </connections>
+                                        </barButtonItem>
+                                        <barButtonItem key="rightBarButtonItem" title="Save" id="nuz-29-41O">
+                                            <connections>
+                                                <action selector="save:" destination="5ee-EQ-I6w" id="Vda-ZF-DHg"/>
+                                            </connections>
+                                        </barButtonItem>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="j6x-Bo-7i0" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="2VI-fZ-aSh"/>
                             <constraint firstItem="j6x-Bo-7i0" firstAttribute="leading" secondItem="vSD-vh-m6g" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="6uc-0O-74t"/>
                             <constraint firstItem="DM5-Ai-Gli" firstAttribute="leading" secondItem="fLS-Zv-oDN" secondAttribute="trailing" constant="8" symbolic="YES" type="default" id="71u-Jg-44Z"/>
-                            <constraint firstItem="CYK-YM-PrX" firstAttribute="top" secondItem="vSD-vh-m6g" secondAttribute="top" type="default" id="7sj-ga-j5k"/>
-                            <constraint firstItem="CYK-YM-PrX" firstAttribute="trailing" secondItem="vSD-vh-m6g" secondAttribute="trailing" type="default" id="AHV-Ws-w0J"/>
                             <constraint firstAttribute="trailing" secondItem="D27-OX-yBq" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="BDz-Hh-zke"/>
                             <constraint firstItem="DM5-Ai-Gli" firstAttribute="baseline" secondItem="fLS-Zv-oDN" secondAttribute="baseline" type="default" id="Dh4-zd-6zd"/>
-                            <constraint firstItem="CYK-YM-PrX" firstAttribute="leading" secondItem="vSD-vh-m6g" secondAttribute="leading" type="default" id="F5T-CV-cvq"/>
                             <constraint firstItem="D27-OX-yBq" firstAttribute="top" secondItem="vSD-vh-m6g" secondAttribute="top" constant="62" id="Hi0-xi-RNy"/>
                             <constraint firstAttribute="trailing" secondItem="baa-Pp-Gpf" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="J7O-g8-chf"/>
-                            <constraint firstItem="apG-h4-9vJ" firstAttribute="top" secondItem="vSD-vh-m6g" secondAttribute="top" constant="219" id="LNl-T9-7SN"/>
+                            <constraint firstItem="fLS-Zv-oDN" firstAttribute="top" secondItem="vSD-vh-m6g" secondAttribute="top" constant="143" id="L4n-qU-pYJ"/>
                             <constraint firstItem="j6x-Bo-7i0" firstAttribute="top" secondItem="D27-OX-yBq" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="Loh-1V-0v1"/>
                             <constraint firstItem="baa-Pp-Gpf" firstAttribute="top" secondItem="fLS-Zv-oDN" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="Lu6-9Q-4e6"/>
                             <constraint firstItem="fLS-Zv-oDN" firstAttribute="leading" secondItem="vSD-vh-m6g" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="O1L-K8-pE7"/>
                             <constraint firstItem="MdP-uC-j4N" firstAttribute="baseline" secondItem="apG-h4-9vJ" secondAttribute="baseline" type="default" id="TCQ-0Z-JVc"/>
                             <constraint firstAttribute="trailing" secondItem="DM5-Ai-Gli" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="VJ5-2w-WbX"/>
+                            <constraint firstItem="utl-XR-Qae" firstAttribute="leading" secondItem="vSD-vh-m6g" secondAttribute="leading" type="default" id="ZKa-n7-1J5"/>
                             <constraint firstItem="apG-h4-9vJ" firstAttribute="top" secondItem="baa-Pp-Gpf" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="dpP-Mk-SzG"/>
+                            <constraint firstItem="utl-XR-Qae" firstAttribute="top" secondItem="vSD-vh-m6g" secondAttribute="top" type="default" id="e9c-sa-RMP"/>
                             <constraint firstItem="D27-OX-yBq" firstAttribute="leading" secondItem="vSD-vh-m6g" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="ku0-N7-iR0"/>
                             <constraint firstAttribute="trailing" secondItem="MdP-uC-j4N" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="ll3-kP-g4d"/>
                             <constraint firstItem="clY-oO-hSO" firstAttribute="top" secondItem="apG-h4-9vJ" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="oej-2l-Cve"/>
+                            <constraint firstItem="utl-XR-Qae" firstAttribute="trailing" secondItem="vSD-vh-m6g" secondAttribute="trailing" type="default" id="qAl-dh-oFw"/>
                             <constraint firstItem="baa-Pp-Gpf" firstAttribute="leading" secondItem="vSD-vh-m6g" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="r9y-og-aTP"/>
                             <constraint firstItem="clY-oO-hSO" firstAttribute="leading" secondItem="vSD-vh-m6g" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="tQ6-Gz-YEx"/>
                             <constraint firstItem="apG-h4-9vJ" firstAttribute="leading" secondItem="vSD-vh-m6g" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="tql-tL-n9M"/>
                             <constraint firstAttribute="trailing" secondItem="clY-oO-hSO" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="whu-uO-Kc3"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="w5G-yK-X4u"/>
                     <connections>
+                        <outlet property="cancelButton" destination="xlE-Me-8hE" id="GOe-MV-12R"/>
                         <outlet property="cityField" destination="baa-Pp-Gpf" id="jUI-wF-5zO"/>
                         <outlet property="descriptionField" destination="j6x-Bo-7i0" id="RqC-hb-FjP"/>
                         <outlet property="phoneField" destination="clY-oO-hSO" id="LVx-Pi-YeF"/>
+                        <outlet property="saveButton" destination="nuz-29-41O" id="16C-nO-z6m"/>
                         <outlet property="stateField" destination="apG-h4-9vJ" id="sbt-Tq-CbQ"/>
                         <outlet property="streetAddressField" destination="fLS-Zv-oDN" id="lPq-xZ-DDO"/>
                         <outlet property="titleField" destination="D27-OX-yBq" id="QwZ-AA-9El"/>
@@ -856,7 +862,104 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SaJ-8I-BEN" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="767" y="-2373"/>
+            <point key="canvasLocation" x="767" y="-2365"/>
+        </scene>
+        <!--Display Location View Controller - Location-->
+        <scene sceneID="vMR-W7-sH5">
+            <objects>
+                <viewController id="N5i-pL-XDC" customClass="DisplayLocationViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="VPB-HU-S8j">
+                        <rect key="frame" x="0.0" y="64" width="320" height="367"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Location Title" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="yXV-U0-mCY">
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Street Address" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="MwA-UQ-kYv">
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Unit Address" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="O4c-Km-igc">
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="68" id="PVI-3t-SD9"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="City" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="f3d-82-zdF">
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="State" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ACM-WB-WWq">
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="121" id="R3a-Ug-MUe"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Zip" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="SBO-OU-1I5">
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="121" id="vmb-Bu-kyg"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Phone" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Bj0-ti-14w">
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="description" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="jN2-Eo-WAL">
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="ACM-WB-WWq" firstAttribute="baseline" secondItem="SBO-OU-1I5" secondAttribute="baseline" type="default" id="5YJ-ZG-LKe"/>
+                            <constraint firstItem="MwA-UQ-kYv" firstAttribute="baseline" secondItem="O4c-Km-igc" secondAttribute="baseline" type="default" id="6AF-c5-5th"/>
+                            <constraint firstItem="f3d-82-zdF" firstAttribute="leading" secondItem="VPB-HU-S8j" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="CqE-y9-WFc"/>
+                            <constraint firstAttribute="trailing" secondItem="yXV-U0-mCY" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="GMZ-eR-zv6"/>
+                            <constraint firstItem="jN2-Eo-WAL" firstAttribute="top" secondItem="yXV-U0-mCY" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="JEJ-nG-UHZ"/>
+                            <constraint firstItem="yXV-U0-mCY" firstAttribute="top" secondItem="VPB-HU-S8j" secondAttribute="top" constant="20" symbolic="YES" type="default" id="JGD-gZ-Crn"/>
+                            <constraint firstAttribute="trailing" secondItem="f3d-82-zdF" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="Kd0-8T-tP6"/>
+                            <constraint firstAttribute="trailing" secondItem="SBO-OU-1I5" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="MaI-nc-N3p"/>
+                            <constraint firstItem="jN2-Eo-WAL" firstAttribute="leading" secondItem="VPB-HU-S8j" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="OGt-7B-PFc"/>
+                            <constraint firstItem="Bj0-ti-14w" firstAttribute="top" secondItem="ACM-WB-WWq" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="R8C-L6-jfg"/>
+                            <constraint firstAttribute="trailing" secondItem="jN2-Eo-WAL" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="RZ9-B1-9ub"/>
+                            <constraint firstItem="f3d-82-zdF" firstAttribute="top" secondItem="MwA-UQ-kYv" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="UtA-Se-6BB"/>
+                            <constraint firstAttribute="trailing" secondItem="Bj0-ti-14w" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="WtB-ee-7tF"/>
+                            <constraint firstItem="Bj0-ti-14w" firstAttribute="leading" secondItem="VPB-HU-S8j" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="bNb-ds-Kdg"/>
+                            <constraint firstItem="ACM-WB-WWq" firstAttribute="leading" secondItem="VPB-HU-S8j" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="iKH-94-2ub"/>
+                            <constraint firstItem="MwA-UQ-kYv" firstAttribute="leading" secondItem="VPB-HU-S8j" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="ncc-2f-Mfl"/>
+                            <constraint firstItem="ACM-WB-WWq" firstAttribute="top" secondItem="f3d-82-zdF" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="uso-dF-Rpp"/>
+                            <constraint firstItem="yXV-U0-mCY" firstAttribute="leading" secondItem="VPB-HU-S8j" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="wa3-Oc-ynU"/>
+                            <constraint firstAttribute="trailing" secondItem="O4c-Km-igc" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="yUZ-E3-NIe"/>
+                            <constraint firstItem="MwA-UQ-kYv" firstAttribute="top" secondItem="VPB-HU-S8j" secondAttribute="top" constant="101" id="zH0-bJ-B1N"/>
+                            <constraint firstItem="O4c-Km-igc" firstAttribute="leading" secondItem="MwA-UQ-kYv" secondAttribute="trailing" constant="8" symbolic="YES" type="default" id="zL6-4f-WFz"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Location" id="fAL-bz-yJA">
+                        <barButtonItem key="rightBarButtonItem" title="Save" id="Skc-2g-8Gv">
+                            <connections>
+                                <action selector="save:" destination="N5i-pL-XDC" id="NsV-lS-sAI"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="cityField" destination="f3d-82-zdF" id="XVS-U3-3EH"/>
+                        <outlet property="descriptionField" destination="jN2-Eo-WAL" id="9m4-QK-bdb"/>
+                        <outlet property="phoneField" destination="Bj0-ti-14w" id="ZJ1-k8-fLh"/>
+                        <outlet property="stateField" destination="ACM-WB-WWq" id="Zqb-9E-Htn"/>
+                        <outlet property="streetAddressField" destination="MwA-UQ-kYv" id="sU1-JK-WZv"/>
+                        <outlet property="titleField" destination="yXV-U0-mCY" id="OUh-tU-7bt"/>
+                        <outlet property="unitAddressField" destination="O4c-Km-igc" id="9pT-nN-eN3"/>
+                        <outlet property="zipField" destination="SBO-OU-1I5" id="2VZ-tL-lak"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Qsb-DQ-G2t" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="767" y="-2978"/>
         </scene>
         <!--Table View Controller-->
         <scene sceneID="xBT-HC-e0h">
@@ -1155,52 +1258,6 @@
             <point key="canvasLocation" x="-313" y="-2373"/>
         </scene>
     </scenes>
-    <classes>
-        <class className="AddLocationViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/AddLocationViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="cancel:"/>
-                <relationship kind="action" name="save:"/>
-                <relationship kind="outlet" name="cityField" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="descriptionField" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="phoneField" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="stateField" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="streetAddressField" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="titleField" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="unitAddressField" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="zipField" candidateClass="UITextField"/>
-            </relationships>
-        </class>
-        <class className="AddServiceViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/AddServiceViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="cancel:"/>
-                <relationship kind="action" name="save:"/>
-                <relationship kind="outlet" name="descriptionField" candidateClass="UITextView"/>
-                <relationship kind="outlet" name="titleField" candidateClass="UITextField"/>
-            </relationships>
-        </class>
-        <class className="LocationTableViewController" superclassName="UITableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/LocationTableViewController.h"/>
-        </class>
-        <class className="NSLayoutConstraint" superclassName="NSObject">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/NSLayoutConstraint.h"/>
-        </class>
-        <class className="ServiceDetailViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/ServiceDetailViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="done:"/>
-                <relationship kind="action" name="edit:"/>
-                <relationship kind="outlet" name="descriptionField" candidateClass="UITextView"/>
-                <relationship kind="outlet" name="doneButton" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="editButton" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="titleField" candidateClass="UITextField"/>
-            </relationships>
-        </class>
-        <class className="ServiceTableViewController" superclassName="UITableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/ServiceTableViewController.h"/>
-        </class>
-    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>

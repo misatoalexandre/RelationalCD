@@ -8,7 +8,7 @@
 
 #import "LocationTableViewController.h"
 #import "Location.h"
-
+#import "DisplayLocationViewController.h"
 @interface LocationTableViewController ()
 
 @end
@@ -49,6 +49,11 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+#pragma mark-displayLocationViewControllerDelegate Method
+-(void)displayLocaitonViewControllerDidSave:(DisplayLocationViewController *)controller
+{
+    [controller.navigationController popViewControllerAnimated:YES];
+}
 #pragma mark-addLocationViewControllerDelegate Methods
 -(void)addLocationViewControllerDidSave{
     NSError *error =nil;
@@ -66,7 +71,7 @@
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
-#pragma marke-prepare for segue
+#pragma mark-prepare for segue
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     if ([[segue identifier]isEqualToString:@"NewLocation"]) {
         AddLocationViewController *alvc=(AddLocationViewController *)[segue destinationViewController];
@@ -74,6 +79,15 @@
         
         Location  *newLocation=(Location *)[NSEntityDescription insertNewObjectForEntityForName:@"Location" inManagedObjectContext:self.managedObjectContext];
         alvc.currentLocation=newLocation;
+    }
+    if ([[segue identifier]isEqualToString:@"DisplayLocation"]) {
+        DisplayLocationViewController *dlvc=(DisplayLocationViewController *)[segue destinationViewController];
+        NSIndexPath *indexPath=[self.tableView indexPathForSelectedRow];
+        Location *selectedLocation=(Location *)[self.fetchedResultsController objectAtIndexPath:indexPath];
+        dlvc.currentLocation=selectedLocation;
+        dlvc.delegate=self;
+        
+      
     }
 }
 
