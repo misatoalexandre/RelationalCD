@@ -27,6 +27,15 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
+    
+    self.titleField.text=[self.currentLocation locationTitle];
+    self.descriptionField.text=[self.currentLocation locationName];
+    self.streetAddressField.text=[self.currentLocation streetAddress];
+    self.unitAddressField.text=[self.currentLocation unitAddress];
+    self.cityField.text=[self.currentLocation city];
+    self.stateField.text=[self.currentLocation state];
+    self.zipField.text=[self.currentLocation zip];
+    self.phoneField.text=[self.currentLocation locationPhone];
 }
 
 - (void)didReceiveMemoryWarning
@@ -35,4 +44,21 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (IBAction)save:(id)sender {
+    //dismiss and save the context
+    [self.currentLocation setLocationTitle:self.titleField.text];
+    [self.currentLocation setLocationName:self.descriptionField.text];
+    [self.currentLocation setStreetAddress:self.streetAddressField.text];
+    [self.currentLocation setUnitAddress:self.unitAddressField.text];
+    [self.currentLocation setCity:self.cityField.text];
+    [self.currentLocation setState:self.stateField.text];
+    [self.currentLocation setZip:self.zipField.text];
+    [self.currentLocation setLocationPhone:self.phoneField.text];
+    [self.delegate addLocationViewControllerDidSave];
+}
+
+- (IBAction)cancel:(id)sender {
+    //dismiss and remove the object
+    [self.delegate addLocationViewControllerDidCancel:self.currentLocation];
+}
 @end
