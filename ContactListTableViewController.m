@@ -7,7 +7,7 @@
 //
 
 #import "ContactListTableViewController.h"
-
+#import "Client.h"
 @interface ContactListTableViewController ()
 
 @end
@@ -32,6 +32,12 @@
  
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+    
+    NSError *error =nil;
+    if (![[self fetchedResultsController]performFetch:&error]) {
+        NSLog(@"Error! %@", error);
+        abort() ;
+    }
 }
 
 - (void)didReceiveMemoryWarning
@@ -44,16 +50,15 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-#warning Potentially incomplete method implementation.
     // Return the number of sections.
-    return 0;
+    return [[self.fetchedResultsController sections]count];
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-#warning Incomplete method implementation.
     // Return the number of rows in the section.
-    return 0;
+    id<NSFetchedResultsSectionInfo>secInfo=[[self.fetchedResultsController sections]objectAtIndex:section];
+    return [secInfo numberOfObjects];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -62,6 +67,8 @@
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
     
     // Configure the cell...
+    Client *client=[self.fetchedResultsController objectAtIndexPath:indexPath];
+    cell.textLabel.text=client.clientFirstName;
     
     return cell;
 }
@@ -104,7 +111,67 @@
     return YES;
 }
 */
-#pragma mark-
+#pragma mark
+#pragma mark-NSFetchedResultsController Section
+-(NSFetchedResultsController *)fetchedResultsController{
+    if (_fetchedResultsController !=nil) {
+        return _fetchedResultsController;
+    }
+    
+    //create one if it does not exist
+    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
+    NSEntityDescription *entity = [NSEntityDescription entityForName:@"Client"
+                                              inManagedObjectContext:self.managedObjectContext];
+    [fetchRequest setEntity:entity];
+    
+    NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc]
+                                        initWithKey:@"clientFirstName"
+                                        ascending:YES];
+    
+    NSArray *sortDescriptors = [[NSArray alloc] initWithObjects:sortDescriptor, nil];
+    [fetchRequest setSortDescriptors:sortDescriptors];
+    
+    _fetchedResultsController=[[NSFetchedResultsController alloc]initWithFetchRequest:fetchRequest managedObjectContext:self.managedObjectContext sectionNameKeyPath:nil cacheName:nil]; //add attribute name for section if sections are needed.
+    
+    _fetchedResultsController.delegate=self;
+    return _fetchedResultsController;
+    
+}
+//FetchedResultsControllerDelegate Methods-enable immediate updates in the tableview display.
+-(void)controllerWillChangeContent:(NSFetchedResultsController *)controller{
+    [self.tableView beginUpdates];
+}
+-(void)controllerDidChangeContent:(NSFetchedResultsController *)controller{
+    [self.tableView endUpdates];
+}
+-(void)controller:(NSFetchedResultsController *)controller didChangeObject:(id)anObject atIndexPath:(NSIndexPath *)indexPath forChangeType:(NSFetchedResultsChangeType)type newIndexPath:(NSIndexPath *)newIndexPath
+{
+    UITableView *tableView=self.tableView;
+    switch (type) {
+        case NSFetchedResultsChangeInsert:
+            [tableView insertRowsAtIndexPaths:[NSArray arrayWithObject:newIndexPath] withRowAnimation:UITableViewRowAnimationFade];
+            break;
+        case NSFetchedResultsChangeDelete:
+            [tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationFade];
+            break;
+        case NSFetchedResultsChangeMove:
+            [tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationFade];
+            [tableView insertRowsAtIndexPaths:[NSArray arrayWithObject:newIndexPath] withRowAnimation:UITableViewRowAnimationFade];
+            break;
+        case NSFetchedResultsChangeUpdate:{
+            //1.get the service at the particular cell from fetchedResultsController
+            Client *updatedClient = [self.fetchedResultsController objectAtIndexPath:indexPath];
+            
+            //2.grab the current location of it.
+            UITableViewCell *cell=[tableView cellForRowAtIndexPath:indexPath];
+            //3. change Client Name.
+            
+            cell.textLabel.text=updatedClient.clientFirstName;
+        }
+            break;
+    }
+}
+
 
 #pragma mark - Table view delegate
 
@@ -112,11 +179,12 @@
 {
     // Navigation logic may go here. Create and push another view controller.
     /*
-     <#DetailViewController#> *detailViewController = [[<#DetailViewController#> alloc] initWithNibName:@"<#Nib name#>" bundle:nil];
+     initWith *detailViewController = [[; alloc] initWithNibName:@" con" bundle:nil];
      // ...
      // Pass the selected object to the new view controller.
      [self.navigationController pushViewController:detailViewController animated:YES];
      */
 }
+
 
 @end

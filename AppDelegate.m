@@ -37,7 +37,7 @@
     
     //UserViewController (Index2)
     UserViewController *uvc=[[navControllerThree viewControllers]objectAtIndex:0];
-   //uvc.managedObjectContext=self.managedObjectContext;
+   uvc.managedObjectContext=self.managedObjectContext;
     
     //ContactListTableViewController (Index 3)
     ContactListTableViewController *cltvc=[[navControllerFour viewControllers]objectAtIndex:0];

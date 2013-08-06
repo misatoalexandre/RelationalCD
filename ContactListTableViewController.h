@@ -8,9 +8,11 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ContactListTableViewController : UITableViewController
+@interface ContactListTableViewController : UITableViewController<NSFetchedResultsControllerDelegate>
 
 @property (nonatomic, strong) NSManagedObjectContext *managedObjectContext;
+@property (nonatomic, strong) NSFetchedResultsController *fetchedResultsController;
+
 
 
 @end
