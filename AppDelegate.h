@@ -10,6 +10,7 @@
 #import "ServiceTableViewController.h"
 #import "LocationTableViewController.h"
 #import "UserViewController.h"
+#import "ContactListTableViewController.h"
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
 

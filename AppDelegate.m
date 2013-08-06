@@ -22,6 +22,7 @@
     UINavigationController *navController=[[tabBarController viewControllers]objectAtIndex:0];
     UINavigationController *navControllerTwo=[[tabBarController viewControllers]objectAtIndex:1];
     UINavigationController *navControllerThree=[[tabBarController viewControllers]objectAtIndex:2];
+    UINavigationController *navControllerFour=[[tabBarController viewControllers]objectAtIndex:3];
     
     //UINavigationController *nav=(UINavigationController *)self.window.rootViewController;
     //ServiceTableViewController *stvc=(ServiceTableViewController *)[[nav viewControllers]objectAtIndex:0];
@@ -37,6 +38,10 @@
     //UserViewController (Index2)
     UserViewController *uvc=[[navControllerThree viewControllers]objectAtIndex:0];
    //uvc.managedObjectContext=self.managedObjectContext;
+    
+    //ContactListTableViewController (Index 3)
+    ContactListTableViewController *cltvc=[[navControllerFour viewControllers]objectAtIndex:0];
+    cltvc.managedObjectContext=self.managedObjectContext;
    
     
     return YES;
