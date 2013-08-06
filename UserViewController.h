@@ -9,19 +9,24 @@
 #import <UIKit/UIKit.h>
 #import "User.h"
 
-@interface UserViewController : UIViewController <NSFetchedResultsControllerDelegate>
+@interface UserViewController : UIViewController 
+
 @property (nonatomic, strong) User *theUser;
 @property (nonatomic, strong) NSManagedObjectContext *managedObjectContext;
-@property (nonatomic, strong) NSFetchedResultsController *fetchedResultsController;
+
+
 @property (weak, nonatomic) IBOutlet UITextField *firstNameField;
 @property (weak, nonatomic) IBOutlet UITextField *lastNameField;
 @property (weak, nonatomic) IBOutlet UITextField *businessNameField;
 @property (weak, nonatomic) IBOutlet UITextField *emailField;
 @property (weak, nonatomic) IBOutlet UITextField *phoneField;
 @property (weak, nonatomic) IBOutlet UITextField *password;
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *save;
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *edit;
 
 - (IBAction)save:(id)sender;
 - (IBAction)cancel:(id)sender;
+
 
 
 @end
