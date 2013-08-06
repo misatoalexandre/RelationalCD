@@ -266,7 +266,7 @@
                     </connections>
                 </searchDisplayController>
             </objects>
-            <point key="canvasLocation" x="188" y="-662"/>
+            <point key="canvasLocation" x="714" y="-662"/>
         </scene>
         <!--Table View Controller-->
         <scene sceneID="dpA-vV-HjZ">
@@ -407,7 +407,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lfu-9G-3s6" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="634" y="-662"/>
+            <point key="canvasLocation" x="1160" y="-662"/>
         </scene>
         <!--Service Table View Controller - Services-->
         <scene sceneID="Whi-QI-DA8">
@@ -590,7 +590,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RZh-XP-NOO" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="907" y="-1027"/>
+            <point key="canvasLocation" x="1433" y="-1027"/>
         </scene>
         <!--Table View Controller - Packages-->
         <scene sceneID="tKq-yl-gda">
@@ -1129,30 +1129,14 @@
             </objects>
             <point key="canvasLocation" x="634" y="662"/>
         </scene>
-        <!--User View Controller - Item-->
+        <!--User View Controller - User Info-->
         <scene sceneID="zUe-1z-gwu">
             <objects>
                 <viewController id="X6Q-d9-nGp" customClass="UserViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="5mn-UH-mVT">
-                        <rect key="frame" x="0.0" y="20" width="320" height="411"/>
+                        <rect key="frame" x="0.0" y="64" width="320" height="367"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aqc-1h-Ka7">
-                                <items>
-                                    <navigationItem title="User Info" id="Df6-V2-hTJ">
-                                        <barButtonItem key="leftBarButtonItem" title="Cancel" id="ojn-uo-CkF">
-                                            <connections>
-                                                <action selector="cancel:" destination="X6Q-d9-nGp" id="kZe-HH-s9B"/>
-                                            </connections>
-                                        </barButtonItem>
-                                        <barButtonItem key="rightBarButtonItem" title="Save" id="Qql-cE-a9z">
-                                            <connections>
-                                                <action selector="save:" destination="X6Q-d9-nGp" id="cQR-Rq-tbW"/>
-                                            </connections>
-                                        </barButtonItem>
-                                    </navigationItem>
-                                </items>
-                            </navigationBar>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="First Name" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="1OP-Ly-FMh">
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
@@ -1182,40 +1166,50 @@
                         <constraints>
                             <constraint firstItem="1xF-UT-mKp" firstAttribute="top" secondItem="zdU-YP-nmt" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="20Q-xI-EgZ"/>
                             <constraint firstItem="J9q-zf-ht2" firstAttribute="top" secondItem="1xF-UT-mKp" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="249-28-xCR"/>
-                            <constraint firstItem="aqc-1h-Ka7" firstAttribute="leading" secondItem="5mn-UH-mVT" secondAttribute="leading" type="default" id="4zu-Mw-JXf"/>
                             <constraint firstAttribute="trailing" secondItem="1xF-UT-mKp" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="6Ra-eT-H50"/>
                             <constraint firstAttribute="trailing" secondItem="1OP-Ly-FMh" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="85V-r4-3sy"/>
                             <constraint firstAttribute="trailing" secondItem="J9q-zf-ht2" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="ATG-hw-KwV"/>
                             <constraint firstItem="zdU-YP-nmt" firstAttribute="leading" secondItem="5mn-UH-mVT" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="G7v-r4-BY7"/>
                             <constraint firstItem="TV0-Ks-f1L" firstAttribute="leading" secondItem="5mn-UH-mVT" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="GKA-uL-uuU"/>
                             <constraint firstAttribute="trailing" secondItem="zdU-YP-nmt" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="LZm-bH-QAq"/>
+                            <constraint firstItem="1OP-Ly-FMh" firstAttribute="top" secondItem="5mn-UH-mVT" secondAttribute="top" constant="13" id="NCq-OH-nAL"/>
                             <constraint firstItem="bsK-mG-MQh" firstAttribute="leading" secondItem="5mn-UH-mVT" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="NTL-ni-MUX"/>
-                            <constraint firstItem="aqc-1h-Ka7" firstAttribute="trailing" secondItem="5mn-UH-mVT" secondAttribute="trailing" type="default" id="WQW-mD-YP2"/>
-                            <constraint firstItem="aqc-1h-Ka7" firstAttribute="top" secondItem="5mn-UH-mVT" secondAttribute="top" type="default" id="b08-5K-JoP"/>
-                            <constraint firstItem="1OP-Ly-FMh" firstAttribute="top" secondItem="5mn-UH-mVT" secondAttribute="top" constant="62" id="i2f-nO-QfY"/>
+                            <constraint firstAttribute="bottom" secondItem="bsK-mG-MQh" secondAttribute="bottom" constant="117" id="XKo-fG-vRK"/>
+                            <constraint firstItem="TV0-Ks-f1L" firstAttribute="top" secondItem="5mn-UH-mVT" secondAttribute="top" constant="173" id="aVT-Iz-Ix8"/>
                             <constraint firstItem="1xF-UT-mKp" firstAttribute="leading" secondItem="5mn-UH-mVT" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="iE5-oS-sbH"/>
-                            <constraint firstItem="TV0-Ks-f1L" firstAttribute="top" secondItem="5mn-UH-mVT" secondAttribute="top" constant="222" id="ken-gA-Hap"/>
                             <constraint firstItem="J9q-zf-ht2" firstAttribute="leading" secondItem="5mn-UH-mVT" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="lxg-cm-DJF"/>
-                            <constraint firstItem="bsK-mG-MQh" firstAttribute="top" secondItem="5mn-UH-mVT" secondAttribute="top" constant="269" id="oFk-ta-bdG"/>
                             <constraint firstItem="1OP-Ly-FMh" firstAttribute="leading" secondItem="5mn-UH-mVT" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="oNU-jX-8dM"/>
                             <constraint firstItem="zdU-YP-nmt" firstAttribute="top" secondItem="1OP-Ly-FMh" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="pjY-aa-bCi"/>
                             <constraint firstAttribute="trailing" secondItem="TV0-Ks-f1L" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="pkG-kS-ozA"/>
                             <constraint firstAttribute="trailing" secondItem="bsK-mG-MQh" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="x12-J7-gbM"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item" id="Ouc-bp-DCU"/>
+                    <navigationItem key="navigationItem" title="User Info" id="luR-1s-ofg">
+                        <barButtonItem key="leftBarButtonItem" title="Edit" id="ojn-uo-CkF">
+                            <connections>
+                                <action selector="cancel:" destination="X6Q-d9-nGp" id="kZe-HH-s9B"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="Save" id="Qql-cE-a9z">
+                            <connections>
+                                <action selector="save:" destination="X6Q-d9-nGp" id="cQR-Rq-tbW"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="businessNameField" destination="1xF-UT-mKp" id="VY8-up-AIV"/>
+                        <outlet property="edit" destination="ojn-uo-CkF" id="xjs-BP-pKh"/>
                         <outlet property="emailField" destination="J9q-zf-ht2" id="QLd-mh-1c8"/>
                         <outlet property="firstNameField" destination="1OP-Ly-FMh" id="LA6-Jh-cWh"/>
                         <outlet property="lastNameField" destination="zdU-YP-nmt" id="uGc-k5-r4d"/>
                         <outlet property="password" destination="bsK-mG-MQh" id="b48-aA-YAU"/>
                         <outlet property="phoneField" destination="TV0-Ks-f1L" id="ehK-p7-Nob"/>
+                        <outlet property="save" destination="Qql-cE-a9z" id="4nZ-uc-h3g"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Mse-fZ-AgI" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-322" y="-909"/>
+            <point key="canvasLocation" x="204" y="-909"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="yvG-XH-X2g">
@@ -1230,7 +1224,7 @@
                     <connections>
                         <segue destination="aCX-gN-6vx" kind="relationship" relationship="viewControllers" id="BzD-gI-Qsg"/>
                         <segue destination="1il-CN-9kT" kind="relationship" relationship="viewControllers" id="9uA-BX-wen"/>
-                        <segue destination="X6Q-d9-nGp" kind="relationship" relationship="viewControllers" id="RkZ-Fk-Eg3"/>
+                        <segue destination="5qy-q0-c8b" kind="relationship" relationship="viewControllers" id="RkZ-Fk-Eg3"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="c7o-GX-VC5" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1275,80 +1269,26 @@
             </objects>
             <point key="canvasLocation" x="-313" y="-2373"/>
         </scene>
+        <!--Navigation Controller - Item-->
+        <scene sceneID="o8y-Mh-6Py">
+            <objects>
+                <navigationController id="5qy-q0-c8b" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Item" id="Ouc-bp-DCU"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="QP0-4F-jfS">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="X6Q-d9-nGp" kind="relationship" relationship="rootViewController" id="5Lh-Nf-fR6"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="NAZ-zT-Mhz" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-322" y="-909"/>
+        </scene>
     </scenes>
-    <classes>
-        <class className="AddLocationViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/AddLocationViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="cancel:"/>
-                <relationship kind="action" name="save:"/>
-                <relationship kind="outlet" name="cityField" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="descriptionField" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="phoneField" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="stateField" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="streetAddressField" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="titleField" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="unitAddressField" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="zipField" candidateClass="UITextField"/>
-            </relationships>
-        </class>
-        <class className="AddServiceViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/AddServiceViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="cancel:"/>
-                <relationship kind="action" name="save:"/>
-                <relationship kind="outlet" name="descriptionField" candidateClass="UITextView"/>
-                <relationship kind="outlet" name="titleField" candidateClass="UITextField"/>
-            </relationships>
-        </class>
-        <class className="DisplayLocationViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/DisplayLocationViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="save:"/>
-                <relationship kind="outlet" name="cityField" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="descriptionField" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="phoneField" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="stateField" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="streetAddressField" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="titleField" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="unitAddressField" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="zipField" candidateClass="UITextField"/>
-            </relationships>
-        </class>
-        <class className="LocationTableViewController" superclassName="UITableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/LocationTableViewController.h"/>
-        </class>
-        <class className="NSLayoutConstraint" superclassName="NSObject">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/NSLayoutConstraint.h"/>
-        </class>
-        <class className="ServiceDetailViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/ServiceDetailViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="done:"/>
-                <relationship kind="action" name="edit:"/>
-                <relationship kind="outlet" name="descriptionField" candidateClass="UITextView"/>
-                <relationship kind="outlet" name="doneButton" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="editButton" candidateClass="UIButton"/>
-                <relationship kind="outlet" name="titleField" candidateClass="UITextField"/>
-            </relationships>
-        </class>
-        <class className="ServiceTableViewController" superclassName="UITableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/ServiceTableViewController.h"/>
-        </class>
-        <class className="UserViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/UserViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="cancel:"/>
-                <relationship kind="action" name="save:"/>
-                <relationship kind="outlet" name="businessNameField" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="emailField" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="firstNameField" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="lastNameField" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="password" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="phoneField" candidateClass="UITextField"/>
-            </relationships>
-        </class>
-    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>
