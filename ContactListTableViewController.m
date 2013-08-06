@@ -45,7 +45,33 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-
+#pragma mark-addClientViewControllerDelegate Methods
+-(void)addClientViewControllerDidCancel:(Client *)clientToDelete
+{
+    NSManagedObjectContext *context=self.managedObjectContext;
+    [context deleteObject:clientToDelete];
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
+-(void)addClientViewControllerDidSave
+{
+    NSManagedObjectContext *context=self.managedObjectContext;
+    NSError *error=nil;
+    if (![context save:&error]) {
+        NSLog(@"Error! %@", error);
+    }
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
+#pragma mark-Prepare for segue
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    if ([[segue identifier]isEqualToString:@"NewClient"]) {
+        AddClientViewController *acvc=(AddClientViewController *)[segue destinationViewController];
+        acvc.delegate=self;
+        
+        Client *newClient=(Client *)[NSEntityDescription insertNewObjectForEntityForName:@"Client" inManagedObjectContext:self.managedObjectContext];
+        acvc.currentClient=newClient;
+        
+    }
+}
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
@@ -82,19 +108,21 @@
 }
 */
 
-/*
+
 // Override to support editing the table view.
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if (editingStyle == UITableViewCellEditingStyleDelete) {
-        // Delete the row from the data source
-        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-    }   
-    else if (editingStyle == UITableViewCellEditingStyleInsert) {
-        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-    }   
+        NSManagedObjectContext *context=self.managedObjectContext;
+        Client *client=[self.fetchedResultsController objectAtIndexPath:indexPath];
+        [context deleteObject:client];
+        
+        NSError *error=nil;
+        if (![context save:&error]) {
+            NSLog(@"Error! %@", error);
+        }}
 }
-*/
+
 
 /*
 // Override to support rearranging the table view.

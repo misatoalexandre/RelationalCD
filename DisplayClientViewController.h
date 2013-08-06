@@ -1,5 +1,5 @@
 //
-//  AddClientViewController.h
+//  DisplayClientViewController.h
 //  RelationalCD
 //
 //  Created by Misato Tina Alexandre on 8/6/13.
@@ -9,28 +9,13 @@
 #import <UIKit/UIKit.h>
 #import "Client.h"
 
-@protocol addClientViewControllerDelegate;
-
-@interface AddClientViewController : UIViewController
-
-@property (nonatomic, strong) Client *currentClient;
-@property (nonatomic, weak) id<addClientViewControllerDelegate> delegate;
-
+@interface DisplayClientViewController : UIViewController
+@property (nonatomic, strong)Client *currentClient;
 @property (weak, nonatomic) IBOutlet UITextField *firstNameField;
 @property (weak, nonatomic) IBOutlet UITextField *lastNameField;
 @property (weak, nonatomic) IBOutlet UITextField *emailField;
 @property (weak, nonatomic) IBOutlet UITextField *phoneField;
-
-
-
 - (IBAction)save:(id)sender;
-- (IBAction)cancel:(id)sender;
-
-@end
-
-@protocol addClientViewControllerDelegate
--(void)addClientViewControllerDidSave;
--(void)addClientViewControllerDidCancel:(Client*)clientToDelete;
 
 
 @end
