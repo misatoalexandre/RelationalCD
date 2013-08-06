@@ -52,6 +52,8 @@
     
     AppDelegate *myApp=(AppDelegate *)[[UIApplication sharedApplication]delegate];
     [myApp saveContext];
+    
+    [self.delegate displayClientViewControllerDidSave:self];
                         
 }
 @end

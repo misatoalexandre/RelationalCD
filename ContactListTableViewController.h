@@ -8,8 +8,9 @@
 
 #import <UIKit/UIKit.h>
 #import "AddClientViewController.h"
+#import "DisplayClientViewController.h"
 
-@interface ContactListTableViewController : UITableViewController<NSFetchedResultsControllerDelegate, addClientViewControllerDelegate>
+@interface ContactListTableViewController : UITableViewController<NSFetchedResultsControllerDelegate, addClientViewControllerDelegate, displayClientViewControllerDelegate>
 
 @property (nonatomic, strong) NSManagedObjectContext *managedObjectContext;
 @property (nonatomic, strong) NSFetchedResultsController *fetchedResultsController;

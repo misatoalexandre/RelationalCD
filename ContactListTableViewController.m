@@ -61,6 +61,11 @@
     }
     [self dismissViewControllerAnimated:YES completion:nil];
 }
+#pragma marl-DisplayViewControllerDelegate Method;
+-(void) displayClientViewControllerDidSave:(DisplayClientViewController *)controller{
+    [controller
+     .navigationController popViewControllerAnimated:YES];
+}
 #pragma mark-Prepare for segue
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     if ([[segue identifier]isEqualToString:@"NewClient"]) {
@@ -69,7 +74,16 @@
         
         Client *newClient=(Client *)[NSEntityDescription insertNewObjectForEntityForName:@"Client" inManagedObjectContext:self.managedObjectContext];
         acvc.currentClient=newClient;
+    }
+    if  ([[segue identifier]isEqualToString:@"DisplayClient"])
+    {
+        DisplayClientViewController *dcvc=(DisplayClientViewController *)[segue destinationViewController];
+        NSIndexPath *indexPath=[self.tableView indexPathForSelectedRow];
+        Client *selectedClient=(Client *)[self.fetchedResultsController objectAtIndexPath:indexPath];
+        dcvc.currentClient=selectedClient;
+        dcvc.delegate=self;
         
+    
     }
 }
 #pragma mark - Table view data source
