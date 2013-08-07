@@ -11,6 +11,7 @@
 #import "LocationTableViewController.h"
 #import "UserViewController.h"
 #import "ContactListTableViewController.h"
+#import "PackageListViewController.h"
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
 
