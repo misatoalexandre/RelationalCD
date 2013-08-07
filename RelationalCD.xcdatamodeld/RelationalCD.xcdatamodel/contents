@@ -28,7 +28,7 @@
         <relationship name="session" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Session" inverseName="notifications" inverseEntity="Session" syncable="YES"/>
     </entity>
     <entity name="Package" representedClassName="Package" syncable="YES">
-        <attribute name="dateOfPurchase" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="dateOfPurchase" optional="YES" attributeType="Date" syncable="YES"/>
         <attribute name="notes" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="numberOfUsedSessions" optional="YES" attributeType="Boolean" defaultValueString="0" syncable="YES"/>
         <attribute name="packageID" optional="YES" attributeType="String" syncable="YES"/>
@@ -63,12 +63,12 @@
         <relationship name="clients" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Client" inverseName="serviceProvicer" inverseEntity="Client" syncable="YES"/>
     </entity>
     <elements>
-        <element name="Client" positionX="-198" positionY="27" width="128" height="133"/>
+        <element name="Client" positionX="9" positionY="180" width="128" height="135"/>
         <element name="Location" positionX="45" positionY="254" width="128" height="178"/>
         <element name="Notification" positionX="315" positionY="27" width="128" height="133"/>
         <element name="Package" positionX="-29" positionY="27" width="128" height="148"/>
         <element name="Service" positionX="214" positionY="281" width="128" height="88"/>
         <element name="Session" positionX="135" positionY="27" width="128" height="193"/>
-        <element name="User" positionX="-378" positionY="27" width="128" height="148"/>
+        <element name="User" positionX="-153" positionY="171" width="128" height="150"/>
     </elements>
 </model>

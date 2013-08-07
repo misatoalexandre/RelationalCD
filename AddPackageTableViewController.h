@@ -11,7 +11,9 @@
 @protocol addPackageTableViewControllerDelegate;
 
 @interface AddPackageTableViewController : UITableViewController
-@property (weak, nonatomic) IBOutlet UITextField *dateOfPurchaseField;
+
+
+@property (weak, nonatomic) IBOutlet UITextField *purchasedDateField;
 @property (weak, nonatomic) IBOutlet UITextField *notesField;
 @property (weak, nonatomic) IBOutlet UITextField *packageIDField;
 @property (weak, nonatomic) IBOutlet UITextField *packageSizeField;

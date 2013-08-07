@@ -108,7 +108,11 @@
     
     // Configure the cell...
     Client *client=[self.fetchedResultsController objectAtIndexPath:indexPath];
-    cell.textLabel.text=client.clientFirstName;
+    NSString *fullname = [NSString stringWithFormat:@"%@ %@", client.clientFirstName, client.clientLastName];
+    cell.textLabel.text = fullname;
+    cell.detailTextLabel.text=client.clientEmail;
+    
+    
     
     return cell;
 }

@@ -13,7 +13,7 @@
 
 @interface Package : NSManagedObject
 
-@property (nonatomic, retain) NSNumber * dateOfPurchase;
+@property (nonatomic, retain) NSDate * dateOfPurchase;
 @property (nonatomic, retain) NSString * notes;
 @property (nonatomic, retain) NSNumber * numberOfUsedSessions;
 @property (nonatomic, retain) NSString * packageID;
