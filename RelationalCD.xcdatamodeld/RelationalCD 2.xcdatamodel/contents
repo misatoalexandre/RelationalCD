@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model name="" userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="2061" systemVersion="12E55" minimumToolsVersion="Automatic" macOSVersion="Automatic" iOSVersion="Automatic">
+    <entity name="Client" representedClassName="Client" syncable="YES">
+        <attribute name="clientEmail" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="clientFirstName" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="clientLastName" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="clientPhone" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="packages" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Package" inverseName="client" inverseEntity="Package" syncable="YES"/>
+    </entity>
+    <entity name="Location" representedClassName="Location" syncable="YES">
+        <attribute name="city" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="locationName" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="locationPhone" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="locationTitle" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="state" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="streetAddress" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="unitAddress" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="zip" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="sessions" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Session" inverseName="location" inverseEntity="Session" syncable="YES"/>
+    </entity>
+    <entity name="Notification" syncable="YES">
+        <attribute name="notificationMessage" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="notificationSent" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="notificationTitle" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="notificationType" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="sentDateTime" optional="YES" attributeType="Date" syncable="YES"/>
+        <relationship name="session" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Session" inverseName="notifications" inverseEntity="Session" syncable="YES"/>
+    </entity>
+    <entity name="Package" representedClassName="Package" syncable="YES">
+        <attribute name="dateOfPurchase" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="notes" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="numberOfUsedSessions" optional="YES" attributeType="Boolean" defaultValueString="0" syncable="YES"/>
+        <attribute name="packageID" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="packageTotalNumberOfSessions" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <relationship name="client" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="Client" inverseName="packages" inverseEntity="Client" syncable="YES"/>
+        <relationship name="sessions" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Session" inverseName="package" inverseEntity="Session" syncable="YES"/>
+    </entity>
+    <entity name="Service" representedClassName="Service" syncable="YES">
+        <attribute name="serviceDescription" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="serviceTitle" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="sessions" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Session" inverseName="service" inverseEntity="Session" syncable="YES"/>
+    </entity>
+    <entity name="Session" syncable="YES">
+        <attribute name="sessionEndDateTime" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="sessionID" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="sessionStartDateTime" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="sessionStatus" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="sessionStatusUpdateDateTime" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="sessionUsed" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <relationship name="location" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="Location" inverseName="sessions" inverseEntity="Location" syncable="YES"/>
+        <relationship name="notifications" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Notification" inverseName="session" inverseEntity="Notification" syncable="YES"/>
+        <relationship name="package" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Package" inverseName="sessions" inverseEntity="Package" syncable="YES"/>
+        <relationship name="service" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="Service" inverseName="sessions" inverseEntity="Service" syncable="YES"/>
+    </entity>
+    <entity name="User" representedClassName="User" syncable="YES">
+        <attribute name="businessName" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="password" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="phone" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="userEmail" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="userFirstName" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="userLastName" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="Client" positionX="-198" positionY="27" width="128" height="118"/>
+        <element name="Location" positionX="45" positionY="254" width="128" height="178"/>
+        <element name="Notification" positionX="315" positionY="27" width="128" height="133"/>
+        <element name="Package" positionX="-29" positionY="27" width="128" height="148"/>
+        <element name="Service" positionX="214" positionY="281" width="128" height="88"/>
+        <element name="Session" positionX="135" positionY="27" width="128" height="193"/>
+        <element name="User" positionX="-378" positionY="27" width="128" height="133"/>
+    </elements>
+</model>
